@@ -43,4 +43,8 @@ for line in fileinput.input():
     players[n3] = p3 + pot_per_goal * int(gb) * p3AwardPercentage
     players[n4] = p4 + pot_per_goal * int(gb) * p4AwardPercentage
 
-print players
+import operator
+players_sorted = sorted(players.items(), key=operator.itemgetter(1))
+
+for name, points in reversed(players_sorted):
+    print name, points
